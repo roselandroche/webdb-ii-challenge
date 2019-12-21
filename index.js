@@ -1,6 +1,6 @@
 const express = require("express")
 const helmet = require("helmet")
-const carsRouter = require("./cars/cars-router")
+const carsRouter = require("./cars/cars-router.js")
 
 const server = express()
 const HOST = process.env.HOST || "localhost"
