@@ -3,7 +3,7 @@ const db = require("../utils/db")
 
 const router = express.Router()
 
-router.get("/", (req, res, next) => {
+router.get("/", async (req, res, next) => {
     try{
         res.json(await db('cars').select())
     }
@@ -12,7 +12,7 @@ router.get("/", (req, res, next) => {
     }
 })
 
-router.get("/:id", (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
     try{
         res.json(await db('cars').where('id', req.params.id).first())
     }
@@ -21,7 +21,7 @@ router.get("/:id", (req, res, next) => {
     }
 })
 
-router.post("/", (req, res, next) => {
+router.post("/", async (req, res, next) => {
     try{
         const payload = {
             VIN: req.body.VIN,
